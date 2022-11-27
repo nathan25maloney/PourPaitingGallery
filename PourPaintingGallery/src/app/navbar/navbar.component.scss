@@ -1,0 +1,52 @@
+.NavBar {
+    margin: -10px;
+    padding: 0;
+    background: rgb(244, 240, 240);
+  }
+
+  .NavBar-header{
+    padding: -4;
+  }
+  .NavBar-subheader{
+    margin: 4px;
+  }
+   
+  .NavBar ul li {
+    display: inline;
+    text-decoration: none;
+    padding: 5px 20px;
+  }
+  .NavBar ul {
+    list-style: none;
+    text-align: right;
+    padding: -4;
+    margin: 0;
+  }
+  .NavBar li {
+    font-family: 'Oswald', sans-serif;
+    list-style-type:none;
+
+    font-size: 1.2em;
+    line-height: 40px;
+    height: 40px;
+    border-bottom: 1px solid #888;
+  }
+      
+  .NavBar a:hover {
+    background-color: #dfddea;
+  }
+   
+  @media only screen and (min-width: 500px) {
+    .NavBar li {
+      width: 120px;
+      border-bottom: none;
+      height: 50px;
+      line-height: 50px;
+      font-size: 1.4em;
+    }
+   
+  
+    
+  }
+  
+  
