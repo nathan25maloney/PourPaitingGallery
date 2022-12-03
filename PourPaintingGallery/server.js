@@ -1,15 +1,51 @@
 const express = require('express');
 const http = require('http');
 const path = require('path');
+const bodyParser = require('body-parser')
+const mongo = require('mongoose')
 
 const app = express();
 
-const port = process.env.PORT || 3001;
+var PORT = process.env.PORT || 3005;
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+if (PORT === 3005) {
+    mongo.connect(
+        "mongodb://localhost/pour-painting-gallery", {
+            useMongoClient: true
+        }
+    );
+} else {
+    mongo.connect(
+        "mongodb://localhost/pour-painting-gallery", {
+            useMongoClient: true
+        }
+    );
+}
+
+
+
+const db = mongo.connection;
+
+// Mongoose Connection Verification
+
+
+db.once("open", function() {
+    console.log("Mongoose connection successful.");
+});
+
+
 
 app.use(express.static(__dirname + '/dist/pour-painting-gallery'));
 
-app.get('/*', (req, res) => res.sendFile(path.join(__dirname)));
+app.listen(PORT, function() {
+    console.log(`App listening on http://localhost:${PORT}`);
+});
 
-const server = http.createServer(app);
-
-server.listen(port, () => console.log(`App running on: http://localhost:${port}`));
+db.on("error", function(err) {
+    console.log("Mongoose Error: ", err);
+});
