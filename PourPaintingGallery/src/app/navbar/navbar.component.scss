@@ -1,38 +1,203 @@
-.NavBar {
-    margin: -10px;
-    padding: 0;
-    background: rgb(244, 240, 240);
-  }
+.main{
+  position: absolute;
+  width: 1880px;
+  height: 179px;
+  left: 0px;
+  top: 0px;
+}
+
+.customer_title{
+  // padding-top: 40px;
+  // padding-bottom: 40px;
+  // padding-left: 80px;
+  // padding-right: 1401px;
+
+  position: absolute;
+  height: 99px;
+  left: 4.26%;
+  right: 74.52%;
+  top: 40px;
+  white-space: nowrap; 
+
+}
+// .NavBar {
+//     margin: -10px;
+//     padding: 0;
+//     background: rgb(244, 240, 240);
+//   }
 
   .NavBar-header{
-    padding: -4;
+    // padding: -4;
+    /* Customer Name */
+
+    padding-top: 45px;
+    padding-bottom: 72px;
+    padding-left: 80px;
+    padding-right: 1406.63px;
+    position: absolute;
+    height: 62px;
+    left: 0%;
+    right: 1.41%;
+    top: 5px;
+
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 72px;
+    /* or 150% */
+
+    display: flex;
+    align-items: center;
+
+    color: #353434;
   }
   .NavBar-subheader{
-    margin: 4px;
-  }
-   
-  .NavBar ul li {
-    display: inline;
-    text-decoration: none;
-    padding: 5px 20px;
-  }
-  .NavBar ul {
-    list-style: none;
-    text-align: right;
-    padding: -4;
-    margin: 0;
-  }
-  .NavBar li {
-    font-family: 'Oswald', sans-serif;
-    list-style-type:none;
+    // margin: 4px;
+    /* Customer Title */
 
-    font-size: 1.2em;
-    line-height: 40px;
-    height: 40px;
-    border-bottom: 1px solid #888;
+    margin-top: 90px;
+    margin-bottom: 42px;
+    margin-left: 80px;
+    margin-right: 1599.14px;
+
+    position: absolute;
+    height: 23px;
+    left: 0%;
+    right: 49.66%;
+    top: 74px;
+
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 27px;
+    /* or 150% */
+
+    display: flex;
+    align-items: center;
+
+    color: #353434;
+
   }
+
+  .NavBar1{
+    padding-top: 64.17px;
+    padding-bottom: 64.17px;
+    padding-left: 1374px;
+    padding-right: 80px;
+/* ul */
+    position: absolute;
+    width: 426px;
+    height: 50.66px;
+    right: 80px;
+    top: calc(50% - 50.66px/2);
+
+  }
+
+  .Home{
+
+    /* Home */
+    // flex-direction: row;
+    // flex-grow: 1;
+    a:link { text-decoration: none; }
+    margin-top: 76px;
+    margin-bottom: 76px;
+    margin-left: 1425px;
+    margin-right: 400.8px;
+    position: absolute;
+    width: 54.2px;
+    height: 27px;
+    left: 51px;
+    top: 11.83px;
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    /* or 120% */
+    display: flex;
+    align-items: center;
+    color: #1F1F1F;
+  }
+
+  .art_gallery{
+    /* Art Gallery */
+    a:link { text-decoration: none; }
+    padding-top: 76px;
+    padding-bottom: 76px;
+    padding-left: 1600px;
+    padding-right: 250px;
+
+    position: absolute;
+    width: 101px;
+    height: 27px;
+    left: 15.64px;
+    top: 11.83px;
+
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    /* or 120% */
+
+    display: flex;
+    align-items: center;
+
+    color: #1F1F1F;
+
+  }
+  
+  .shopping_cart{
+    /* Cart */
+    a:link { text-decoration: none; }
+    padding-top: 76px;
+    padding-bottom: 76px;
+    padding-left: 1611px;
+    padding-right: 135px;
+
+    position: absolute;
+    width: 134px;
+    height: 27px;
+    left: 237px;
+    top: 11.83px;
+
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    /* or 120% */
+
+    display: flex;
+    align-items: center;
+
+    color: #1F1F1F;
+  }
+  
+  // .NavBar1 ul li {
+  //   display: inline;
+  //   text-decoration: none;
+  //   padding: 5px 20px;
+  // }
+  // .NavBar1 ul {
+  //   list-style: none;
+  //   text-align: right;
+  //   padding: -4;
+  //   margin: 0;
+  // }
+  // .NavBar1 li {
+  //   font-family: 'Oswald', sans-serif;
+  //   list-style-type:none;
+
+  //   font-size: 1.2em;
+  //   line-height: 40px;
+  //   height: 40px;
+  //   border-bottom: 1px solid #888;
+  // }
       
-  .NavBar a:hover {
+  .NavBar1 a:hover {
     background-color: #dfddea;
   }
    
