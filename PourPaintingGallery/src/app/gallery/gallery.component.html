@@ -1,6 +1,6 @@
 <div class="gallery-body">
-    <div *ngFor="let card of cards">
-        <app-gallery-artcard class="artcard-outer-container" [singleCard]="card" fxFlex></app-gallery-artcard>
-    </div>
+    <!-- <app-artwork-order [cards]="cards"></app-artwork-order> -->
+    <app-gallery-artcard *ngFor="let card of cards" [singleCard]="card" fxFlex>
+    </app-gallery-artcard>
 </div>
 

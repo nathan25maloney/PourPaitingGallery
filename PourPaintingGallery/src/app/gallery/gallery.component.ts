@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChildren, QueryList } from '@angular/core';
 import { IArtCard } from 'src/app/models/IArtCard'
+import { GalleryArtcardComponent } from '../gallery-artcard/gallery-artcard.component';
 
 @Component({
   selector: 'app-gallery',
@@ -14,52 +15,52 @@ export class GalleryComponent implements OnInit {
     {
       filename: 'IMG-1949',
       name: `Bumfuzzle`,
-      likes: 0,
+      likes: 15,
       dislikes: 0
     },{
       filename: 'IMG-1950',
       name: `Everywhen`,
-      likes: 0,
+      likes: 12,
       dislikes: 0
     },{
       filename: 'IMG-1951',
       name: `Erf`,
-      likes: 0,
+      likes: 11,
       dislikes: 0
     },{
       filename: 'IMG-1955',
       name: `Hullaballoo`,
-      likes: 0,
+      likes: 8,
       dislikes: 0
     },{
       filename: 'IMG-1956',
       name: `Meldrop`,
-      likes: 0,
+      likes: 7,
       dislikes: 0
     },{
       filename: 'IMG-1957',
       name: `Obelus`,
-      likes: 0,
+      likes: 5,
       dislikes: 0
     },{
       filename: 'IMG-1958',
       name: `Sozzled`,
-      likes: 0,
+      likes: 4,
       dislikes: 0
     },{
       filename: 'IMG-1962',
       name: `Bumbershoot`,
-      likes: 0,
+      likes: 3,
       dislikes: 0
     },{
       filename: 'IMG-1964',
       name: `Titter`,
-      likes: 0,
+      likes: 2,
       dislikes: 0
     },{
       filename: 'IMG-1970',
       name: `Smicker`,
-      likes: 0,
+      likes: 1,
       dislikes: 0
     },{
       filename: 'IMG-1971',
@@ -189,6 +190,11 @@ export class GalleryComponent implements OnInit {
     }
   ];
 
+  @ViewChildren(GalleryArtcardComponent) GalleryArtcardComponent: QueryList<GalleryArtcardComponent>;
+
+  sortChildComponents() {
+    this.childComponents.sort((a, b) => b.artwork.likes - a.artwork.likes);
+  }
   
   ngOnInit(): void {}
 
