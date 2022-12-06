@@ -1,1 +1,6 @@
-<p>Add all gallery components here</p>
+<div class="gallery-body">
+    <div *ngFor="let card of cards">
+        <app-gallery-artcard class="artcard-outer-container" [singleCard]="card" fxFlex></app-gallery-artcard>
+    </div>
+</div>
+

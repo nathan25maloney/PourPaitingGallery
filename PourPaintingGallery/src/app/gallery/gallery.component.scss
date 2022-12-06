@@ -1,0 +1,12 @@
+.gallery-body{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1.5vw;
+    background-color: #f3f4f5;
+    width: 97vw;;
+}
+.gallery-body div {
+    flex-basis: 17vw;
+    flex-grow: 1;
+}
