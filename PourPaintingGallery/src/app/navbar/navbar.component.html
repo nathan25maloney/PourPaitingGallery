@@ -4,8 +4,8 @@
     <h5 class="NavBar-subheader">Pour Painting Artist</h5>
   </div>
   <div class="nav-bar-links-container">
-    <a class="nav-bar-links" href="#">Home</a>
-    <a class="nav-bar-links" href="#">Art Gallery</a>
-    <a class="nav-bar-links" href="#">Shopping Cart</a>
+    <a class="nav-bar-links" [routerLink]="['/home']" routerLinkActive="active" >Home</a>
+    <a class="nav-bar-links" [routerLink]="['/gallery']" routerLinkActive="active" >Art Gallery</a>
+    <a class="nav-bar-links" [routerLink]="['/cart']" routerLinkActive="active">Shopping Cart</a>
   </div>
 </section>
