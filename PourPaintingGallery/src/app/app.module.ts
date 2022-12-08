@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { GalleryArtcardComponent } from './gallery-artcard/gallery-artcard.component';
+import { TopArtComponent } from './top-art/top-art.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,11 @@ import { GalleryArtcardComponent } from './gallery-artcard/gallery-artcard.compo
     HomeComponent,
     CartComponent,
     GalleryComponent,
-    GalleryArtcardComponent
+    GalleryArtcardComponent,
+    TopArtComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
