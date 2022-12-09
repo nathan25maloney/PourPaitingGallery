@@ -1,6 +1,7 @@
 <div class="gallery-body">
-    <div *ngFor="let card of cards">
-        <app-gallery-artcard class="artcard-outer-container" [singleCard]="card" fxFlex></app-gallery-artcard>
+    <!-- <app-artwork-order [cards]="cards"></app-artwork-order> -->
+    <div *ngFor="let card of sortedList">
+        <app-gallery-artcard class="artcard-outer-container" [singleCard]="card" (likesUpdated)="onLikesUpdated(card)" fxFlex></app-gallery-artcard>
     </div>
 </div>
 

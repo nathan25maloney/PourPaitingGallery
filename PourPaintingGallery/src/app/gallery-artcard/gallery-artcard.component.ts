@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IArtCard } from '../models/IArtCard';
 
 @Component({
@@ -12,6 +12,29 @@ export class GalleryArtcardComponent implements OnInit {
 
   @Input() singleCard!: IArtCard;
   
+  @Output() likesUpdated = new EventEmitter<any>();
+
+  hasVoted = 0;
+
+  incrementLikes() {
+    if (this.hasVoted === -1) {
+      this.singleCard.likes +=2;
+    } else {
+      this.singleCard.likes++;
+    }
+    this.hasVoted = 1;
+    this.likesUpdated.emit(this.singleCard);
+  }
+
+  decrementLikes() {
+    if (this.hasVoted === 1) {
+      this.singleCard.likes -= 2;
+    } else {
+      this.singleCard.likes--;
+    }
+    this.hasVoted = -1;
+    this.likesUpdated.emit(this.singleCard);
+  }
 
   ngOnInit(): void {
     

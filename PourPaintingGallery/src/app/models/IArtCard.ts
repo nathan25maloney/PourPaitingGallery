@@ -1,6 +1,5 @@
 export interface IArtCard {
-    filename: String,
-    name: String,
-    likes: Number,
-    dislikes: Number
+    filename: string,
+    name: string,
+    likes: number
 }
