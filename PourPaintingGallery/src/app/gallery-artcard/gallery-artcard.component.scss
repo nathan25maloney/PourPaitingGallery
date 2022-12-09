@@ -69,3 +69,8 @@
 	outline: inherit;
 }
 
+button.dislikes.selected, button.likes.selected {
+    color: #107994;
+    font-weight: 700;
+}
+
