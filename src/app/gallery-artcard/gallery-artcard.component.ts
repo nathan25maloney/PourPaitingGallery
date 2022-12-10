@@ -19,7 +19,7 @@ export class GalleryArtcardComponent {
   incrementLikes() {
     if (this.hasVoted === -1) {
       this.singleCard.likes +=2;
-    } else {
+    } else if(this.hasVoted !== 1) {
       this.singleCard.likes++;
     }
     this.hasVoted = 1;
@@ -29,7 +29,7 @@ export class GalleryArtcardComponent {
   decrementLikes() {
     if (this.hasVoted === 1) {
       this.singleCard.likes -= 2;
-    } else {
+    } else if(this.hasVoted !== -1){
       this.singleCard.likes--;
     }
     this.hasVoted = -1;
