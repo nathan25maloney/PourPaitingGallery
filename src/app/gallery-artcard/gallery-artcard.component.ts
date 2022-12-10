@@ -6,7 +6,7 @@ import { IArtCard } from '../models/IArtCard';
   templateUrl: './gallery-artcard.component.html',
   styleUrls: ['./gallery-artcard.component.scss']
 })
-export class GalleryArtcardComponent implements OnInit {
+export class GalleryArtcardComponent {
 
   constructor() { }
 
@@ -19,7 +19,7 @@ export class GalleryArtcardComponent implements OnInit {
   incrementLikes() {
     if (this.hasVoted === -1) {
       this.singleCard.likes +=2;
-    } else {
+    } else if(this.hasVoted !== 1) {
       this.singleCard.likes++;
     }
     this.hasVoted = 1;
@@ -29,15 +29,11 @@ export class GalleryArtcardComponent implements OnInit {
   decrementLikes() {
     if (this.hasVoted === 1) {
       this.singleCard.likes -= 2;
-    } else {
+    } else if(this.hasVoted !== -1){
       this.singleCard.likes--;
     }
     this.hasVoted = -1;
     this.likesUpdated.emit(this.singleCard);
-  }
-
-  ngOnInit(): void {
-    
   }
   
 

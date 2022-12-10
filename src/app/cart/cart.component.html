@@ -1,1 +1,5 @@
-<p>Add all cart components here</p>
+
+<div *ngFor="let item of itemsInCart">
+    <app-shopping-cart-item [item]="item"></app-shopping-cart-item>
+</div>
+
