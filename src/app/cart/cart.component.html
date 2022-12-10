@@ -1,5 +1,7 @@
-
-<div *ngFor="let item of itemsInCart">
-    <app-shopping-cart-item [item]="item"></app-shopping-cart-item>
+<div class="shopping-cart-container">
+    <div class="shopping-cart-item-conatiner" *ngFor="let item of itemsInCart">
+        <app-shopping-cart-item [item]="item"></app-shopping-cart-item>
+    </div>
 </div>
+
 

@@ -3,5 +3,6 @@ export interface IArtCard {
     filename: string,
     name: string,
     likes: number,
-    description: string
+    description: string,
+    hasVoted: number
 }
