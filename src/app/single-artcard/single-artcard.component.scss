@@ -1,0 +1,23 @@
+
+.artcard-art{
+    width: 32vw;
+    margin: auto;
+    justify-content: center;
+}
+.artcard-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.painting-name{
+    font-size: 40px;
+    margin-left: 25vw;
+    margin-bottom: 2vh;
+}
+
+.painting-description {
+    margin-top: 2vh;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    text-indent: 16px;
+}

@@ -6,7 +6,7 @@ import { IArtCard } from '../models/IArtCard';
   templateUrl: './gallery-artcard.component.html',
   styleUrls: ['./gallery-artcard.component.scss']
 })
-export class GalleryArtcardComponent implements OnInit {
+export class GalleryArtcardComponent {
 
   constructor() { }
 
@@ -36,7 +36,7 @@ export class GalleryArtcardComponent implements OnInit {
     this.likesUpdated.emit(this.singleCard);
   }
 
-  ngOnInit(): void {
+  linkToArt(id){
     
   }
   
