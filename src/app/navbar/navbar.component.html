@@ -6,6 +6,7 @@
   <div class="nav-bar-links-container">
     <a class="nav-bar-links" [routerLink]="['/home']" routerLinkActive="active" >Home</a>
     <a class="nav-bar-links" [routerLink]="['/gallery']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Art Gallery</a>
-    <a class="nav-bar-links" [routerLink]="['/cart']" routerLinkActive="active">Shopping Cart</a>
+    <a *ngIf="getNumItemsInCart() === 0" class="nav-bar-links" [routerLink]="['/cart']" routerLinkActive="active">Shopping Cart</a>
+    <a *ngIf="getNumItemsInCart() > 0" class="nav-bar-links" [routerLink]="['/cart']" routerLinkActive="active">Shopping Cart (<span>{{ getNumItemsInCart() }}</span>)</a>
   </div>
 </section>

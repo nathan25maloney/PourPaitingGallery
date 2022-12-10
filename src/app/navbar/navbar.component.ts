@@ -1,18 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ShoppingCartService } from '../shopping-cart.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent{
 
-  constructor(public router: Router) {
+  itemsInCart = [];
 
+  constructor(public router: Router, private shoppingCartService: ShoppingCartService) {
+    this.itemsInCart = this.shoppingCartService.getItems();
+    this.shoppingCartService.itemsChanged.subscribe(
+      items => this.itemsInCart = items
+    );
   }
   
-  ngOnInit(): void {
+  getNumItemsInCart() {
+    return this.itemsInCart.length;
   }
 
 }

@@ -2,4 +2,5 @@
     <div class="painting-name">{{singleArt.name}}</div>
     <img class="artcard-art" src="/assets/Images/{{singleArt.filename}}.jpg" alt="{{singleArt.name}}">
     <div class="painting-description">{{singleArt.description}}</div>
+    <button class="add-to-cart" (click)="addToCart()" [disabled]="hasItem()">Add to Cart</button>
 </div>

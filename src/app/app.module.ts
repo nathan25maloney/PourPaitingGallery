@@ -10,6 +10,7 @@ import { CartComponent } from './cart/cart.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { GalleryArtcardComponent } from './gallery-artcard/gallery-artcard.component';
 import { SingleArtcardComponent } from './single-artcard/single-artcard.component';
+import { ShoppingCartItemComponent } from './shopping-cart-item/shopping-cart-item.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SingleArtcardComponent } from './single-artcard/single-artcard.componen
     CartComponent,
     GalleryComponent,
     GalleryArtcardComponent,
-    SingleArtcardComponent
+    SingleArtcardComponent,
+    ShoppingCartItemComponent
   ],
   imports: [
     BrowserModule,

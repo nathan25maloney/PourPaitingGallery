@@ -1,0 +1,9 @@
+<div class="item-container">
+    <a [routerLink]="['/gallery', item.id]">
+        <img class="item-art" src="/assets/Images/{{item.filename}}.jpg" alt="{{item.name}}">
+    </a>
+    <div class="name-button-container">
+        <div class="item-name">{{item.name}}</div>
+        <button class="remove-item" (click)="removeItem()" >Remove</button>
+    </div>
+</div>

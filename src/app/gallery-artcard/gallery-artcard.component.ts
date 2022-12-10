@@ -35,10 +35,6 @@ export class GalleryArtcardComponent {
     this.hasVoted = -1;
     this.likesUpdated.emit(this.singleCard);
   }
-
-  linkToArt(id){
-    
-  }
   
 
 }
