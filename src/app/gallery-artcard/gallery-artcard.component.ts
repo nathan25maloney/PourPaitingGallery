@@ -14,25 +14,24 @@ export class GalleryArtcardComponent {
   
   @Output() likesUpdated = new EventEmitter<any>();
 
-  hasVoted = 0;
 
   incrementLikes() {
-    if (this.hasVoted === -1) {
+    if (this.singleCard.hasVoted === -1) {
       this.singleCard.likes +=2;
-    } else if(this.hasVoted !== 1) {
+    } else if(this.singleCard.hasVoted !== 1) {
       this.singleCard.likes++;
     }
-    this.hasVoted = 1;
+    this.singleCard.hasVoted = 1;
     this.likesUpdated.emit(this.singleCard);
   }
 
   decrementLikes() {
-    if (this.hasVoted === 1) {
+    if (this.singleCard.hasVoted === 1) {
       this.singleCard.likes -= 2;
-    } else if(this.hasVoted !== -1){
+    } else if(this.singleCard.hasVoted !== -1){
       this.singleCard.likes--;
     }
-    this.hasVoted = -1;
+    this.singleCard.hasVoted = -1;
     this.likesUpdated.emit(this.singleCard);
   }
   
