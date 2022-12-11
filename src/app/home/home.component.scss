@@ -38,7 +38,7 @@
 }
 
 .second-row-box {
-  height: 467px;
+  height: 767px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -79,12 +79,9 @@
   flex-grow: 1;
 }
 .svg {
-  width: 14.36px;
-  height: 40.55px;
-  top: 576px;
   white-space: nowrap;
   color: black;
-  margin-right: 40px;
+  margin-right: 160px;
 }
 
 //last container
@@ -122,6 +119,13 @@ h1 {
   align-items: center;
 
   color: #969696;
+}
+
+.strip-style{
+  display: flex;
+  text-decoration: none;
+  flex-grow: 1;
+  max-height: 465px;
 }
 
 .event {
@@ -171,4 +175,34 @@ h1 {
   margin-bottom: -120px;
   display: flex;
   word-wrap: break-word;
+}
+.p-image {
+  background-image: url("/assets/Images/IMG-1998.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center center;
+  padding: 1.5vw;
+  background-color: #f3f4f5;
+  width: 600px;
+  height: 400px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 5em;
+}
+
+.text {
+  color: #de1f98;
+  font-weight: bold;
+  font-size:xx-large;
+  position: absolute;
+  bottom: 28%;
+  left: 22%;
+  
+  
+}
+
+.text:hover {
+  color:#00A0C6; 
+  text-decoration:none; 
+  cursor:pointer;  
 }
