@@ -38,7 +38,7 @@
 }
 
 .second-row-box {
-  height: 467px;
+  height: 767px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -79,14 +79,105 @@
   flex-grow: 1;
 }
 .svg {
-  width: 14.36px;
-  height: 40.55px;
-  top: 576px;
   white-space: nowrap;
   color: black;
-  margin-right: 40px;
+  margin-right: 160px;
 }
 
+//last container
+
+.third-row-containter {
+  margin-left: 24px;
+  height: 597.59px;
+  // border: solid black;
+}
+.grid-container {
+  display: grid;
+  height: 340px;
+  gap: 56px;
+  grid-template-columns: auto auto auto;
+  background-color:  #fafafa;;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: white;
+  display: flex;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  word-wrap: break-word;
+}
+h1 {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 58px;
+  /* or 120% */
+
+  display: flex;
+  align-items: center;
+
+  color: #969696;
+}
+
+.strip-style{
+  display: flex;
+  text-decoration: none;
+  flex-grow: 1;
+  max-height: 465px;
+}
+
+.event {
+  height: 18px;
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  margin: 24px 0px 0px 24px;
+  color: rgba(53, 52, 52, 0.75);
+}
+.location {
+  margin: 8px 0px 24px 24px;
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  /* or 140% */
+
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+
+  color: #353434;
+}
+.img-text-box {
+  display: flex;
+  border: solid black;
+  display: flex;
+  word-wrap: break-word;
+
+  // margin-right: auto;
+  // margin-bottom: -120px;
+}
+
+.expo-txt-box {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+.img-expo {
+  width: 153px;
+  height: 149px;
+  display: flex;
+  word-wrap: break-word;
+}
 .p-image {
   background-image: url("/assets/Images/IMG-1998.jpg");
   background-repeat: no-repeat;
