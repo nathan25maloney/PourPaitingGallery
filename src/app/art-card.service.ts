@@ -38,14 +38,14 @@ export class ArtCardService {
       id: 5,
       filename: 'IMG-1956',
       name: `Meldrop`,
-      likes: 7,
+      likes: 11,
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan in nisl nisi scelerisque eu ultrices. Id interdum velit laoreet id donec ultrices. Ultrices sagittis orci a scelerisque purus semper eget duis at. Eu mi bibendum neque egestas. Elementum integer enim neque volutpat ac tincidunt. Diam ut venenatis tellus in. Ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia.',
       hasVoted: 0      
     },{
       id: 6,
       filename: 'IMG-1957',
       name: `Obelus`,
-      likes: 5,
+      likes: 10,
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan in nisl nisi scelerisque eu ultrices. Id interdum velit laoreet id donec ultrices. Ultrices sagittis orci a scelerisque purus semper eget duis at. Eu mi bibendum neque egestas. Elementum integer enim neque volutpat ac tincidunt. Diam ut venenatis tellus in. Ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia.',
       hasVoted: 0
     },{

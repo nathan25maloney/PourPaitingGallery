@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ArtCardService } from '../art-card.service';
+import { IArtCard } from '../models/IArtCard';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ArtCardService: ArtCardService) { }
 
+  public cards: Array<IArtCard> = this.ArtCardService.getArtCards();
+  
   ngOnInit(): void {
   }
 
