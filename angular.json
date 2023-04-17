@@ -72,7 +72,8 @@
               "browserTarget": "PourPaintingGallery:build:production"
             },
             "development": {
-              "browserTarget": "PourPaintingGallery:build:development"
+              "browserTarget": "PourPaintingGallery:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
