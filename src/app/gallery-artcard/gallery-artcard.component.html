@@ -1,6 +1,6 @@
 <div class="artcard-container">
     <a [routerLink]="['/gallery', singleCard.artId]">
-        <img class="artcard-art" [src]="'data:image/jpeg;base64,' + singleCard.imgBytes"alt="{{singleCard.artName}}">
+        <img class="artcard-art" [src]="'data:image/jpeg;base64,' + singleCard.imgBytes" alt="{{singleCard.artName}}">
     </a>
     <div class="painting-name">{{singleCard.artName}}</div>
     <div class="like-dislike-container">

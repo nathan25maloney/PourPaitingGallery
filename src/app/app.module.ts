@@ -12,6 +12,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { GalleryArtcardComponent } from './gallery-artcard/gallery-artcard.component';
 import { SingleArtcardComponent } from './single-artcard/single-artcard.component';
 import { ShoppingCartItemComponent } from './shopping-cart-item/shopping-cart-item.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +24,13 @@ import { ShoppingCartItemComponent } from './shopping-cart-item/shopping-cart-it
     GalleryComponent,
     GalleryArtcardComponent,
     SingleArtcardComponent,
-    ShoppingCartItemComponent
+    ShoppingCartItemComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

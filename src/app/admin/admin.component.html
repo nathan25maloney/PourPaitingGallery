@@ -1,0 +1,68 @@
+<h1>Art Products Admin</h1>
+<h2>Current Products</h2>
+<table>
+<thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Score</th>
+        <th>Available</th>
+        <th>Dimensions</th>
+        <th>Image</th>
+        <th>Actions</th>
+    </tr>
+</thead>
+<tbody>
+    <!-- Display each art product here -->
+    <tr *ngFor="let artProduct of artList">
+    <td>{{ artProduct.artName }}</td>
+    <td>{{ artProduct.artDesc }}</td>
+    <td>{{ artProduct.artPrice }}</td>
+    <td>{{ artProduct.artScore }}</td>
+    <td>{{ artProduct.isAvailable }}</td>
+    <td>{{ artProduct.artDimension }}</td>
+    <td><img
+        class="second-row-image"
+        [src]="'data:image/jpeg;base64,' + artProduct.imgBytes"
+        alt="{{artProduct.artName}}"
+        width="200px"
+      /></td>
+    <td>
+        <!-- Link to edit page -->
+        <a href="/admin/edit/{{ artProduct.artId }}">Edit</a>
+
+        <!-- Form to delete product -->
+        <form action="/api/ArtProduct/{{ artProduct.artId }}" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+        </form>
+    </td>
+    </tr>
+</tbody>
+</table>
+<h2>Add New Product</h2>
+  <form action="/api/ArtProduct" method="POST" enctype="multipart/form-data">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="artName"><br>
+
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="artDesc"><br>
+
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="artPrice"><br>
+
+    <label for="score">Score:</label>
+    <input type="number" id="score" name="artScore"><br>
+
+    <label for="available">Available:</label>
+    <input type="checkbox" id="available" name="isAvailable"><br>
+
+    <label for="dimensions">Dimensions:</label>
+    <input type="text" id="dimensions" name="artDimensions"><br>
+
+    <label for="image">Image:</label>
+    <input type="file" id="image" name="imgFile"><br>
+
+    <input type="submit" value="Add Product">
+  </form>

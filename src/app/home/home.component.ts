@@ -28,8 +28,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   getRandomImage(): string {
     // Get a random image from your public cards array
     const randomIndex = Math.floor(Math.random() * this.cards.length);
-    console.log(randomIndex)
-    console.log(`data:image/jpeg;base64,${this.cards[randomIndex].imgBytes}`)
     return `data:image/jpeg;base64,${this.cards[randomIndex].imgBytes}`;
   }
 
