@@ -17,21 +17,23 @@ export class GalleryArtcardComponent {
 
   incrementLikes() {
     if (this.singleCard.hasVoted === -1) {
-      this.singleCard.likes +=2;
+      this.singleCard.artScore +=2;
     } else if(this.singleCard.hasVoted !== 1) {
-      this.singleCard.likes++;
+      this.singleCard.artScore++;
     }
     this.singleCard.hasVoted = 1;
+    console.log(this.singleCard)
     this.likesUpdated.emit(this.singleCard);
   }
 
   decrementLikes() {
     if (this.singleCard.hasVoted === 1) {
-      this.singleCard.likes -= 2;
+      this.singleCard.artScore -= 2;
     } else if(this.singleCard.hasVoted !== -1){
-      this.singleCard.likes--;
+      this.singleCard.artScore--;
     }
     this.singleCard.hasVoted = -1;
+    console.log(this.singleCard)
     this.likesUpdated.emit(this.singleCard);
   }
   

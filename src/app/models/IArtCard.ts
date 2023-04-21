@@ -1,8 +1,12 @@
 export interface IArtCard {
-    id: number;
-    filename: string,
-    name: string,
-    likes: number,
-    description: string,
+    artId: string;
+    artName: string,
+    artDesc: string,
+    artPrice: number,
+    isAvailable: boolean,
+    artDimension: string,
+    artScore: number,
+    imgFile: string,
+    imgBytes: string,
     hasVoted: number
 }
