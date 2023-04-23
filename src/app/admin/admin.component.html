@@ -33,36 +33,21 @@
         <a href="/admin/edit/{{ artProduct.artId }}">Edit</a>
 
         <!-- Form to delete product -->
-        <form action="/api/ArtProduct/{{ artProduct.artId }}" method="POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete">
-        </form>
+        <div>
+            <button (click)="deleteArtProduct(artProduct.artId)">Delete</button>
+        </div>
     </td>
     </tr>
 </tbody>
 </table>
 <h2>Add New Product</h2>
-  <form action="/api/ArtProduct" method="POST" enctype="multipart/form-data">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="artName"><br>
-
-    <label for="description">Description:</label>
-    <input type="text" id="description" name="artDesc"><br>
-
-    <label for="price">Price:</label>
-    <input type="number" id="price" name="artPrice"><br>
-
-    <label for="score">Score:</label>
-    <input type="number" id="score" name="artScore"><br>
-
-    <label for="available">Available:</label>
-    <input type="checkbox" id="available" name="isAvailable"><br>
-
-    <label for="dimensions">Dimensions:</label>
-    <input type="text" id="dimensions" name="artDimensions"><br>
-
-    <label for="image">Image:</label>
-    <input type="file" id="image" name="imgFile"><br>
-
-    <input type="submit" value="Add Product">
-  </form>
+    <form [formGroup]="form" (ngSubmit)="createArtProduct()">
+        <input type="text" formControlName="artName" />
+        <textarea formControlName="artDesc"></textarea>
+        <input type="number" formControlName="artPrice" />
+        <input type="checkbox" formControlName="isAvailable" />
+        <input type="text" formControlName="artDimension" />
+        <input type="number" formControlName="artScore" />
+        <input type="file" (change)="onFileSelected($event)" />
+        <button type="submit">Create Art Product</button>
+    </form>

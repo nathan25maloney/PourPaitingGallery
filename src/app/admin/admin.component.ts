@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { IArtCard } from '../models/IArtCard';
 import { ArtCardService } from '../art-card.service';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'ngx-admin',
@@ -11,7 +12,7 @@ import { ArtCardService } from '../art-card.service';
 })
 export class AdminComponent {
   artList:  Array<IArtCard>;
-  selectedFile: File = null;
+  selectedFile: File;
   artProduct: IArtCard = {
     artId: '',
     artName: '',
@@ -24,12 +25,24 @@ export class AdminComponent {
     imgBytes: '',
     hasVoted: 0
   };
+  form: FormGroup;
 
   constructor(
     private http: HttpClient,
     private router: Router,
-    private ArtCardService: ArtCardService
-  ) {}
+    private ArtCardService: ArtCardService,
+    private fb: FormBuilder
+  ) {
+    this.form = this.fb.group({
+      artName: '',
+      artDesc: '',
+      artPrice: 0,
+      isAvailable: false,
+      artDimension: '',
+      artScore: 0,
+      imgFile: null
+    });
+  }
 
   ngOnInit(): void {
     this.getArtList();
@@ -47,17 +60,17 @@ export class AdminComponent {
 
   createArtProduct(): void {
     const formData = new FormData();
-    formData.append('imgFile', this.selectedFile, this.selectedFile.name);
-    formData.append('ArtName', this.artProduct.artName);
-    formData.append('ArtDesc', this.artProduct.artDesc);
-    formData.set('ArtPrice', this.artProduct.artPrice.toString());
-    formData.set('ArtScore', this.artProduct.artScore.toString());
-    formData.set('isAvailable', this.artProduct.isAvailable.toString());
-    formData.append('ArtDimensions', this.artProduct.artDimension);
-
+    formData.append('imgFile', this.selectedFile);
+    formData.append('ArtName', this.form.get('artName').value);
+    formData.append('ArtDesc', this.form.get('artDesc').value);
+    formData.set('ArtPrice', this.form.get('artPrice').value.toString());
+    formData.set('ArtScore', this.form.get('artScore').value.toString());
+    formData.append('isAvailable', this.form.get('isAvailable').value ? 'true' : 'false');
+    formData.append('ArtDimensions', this.form.get('artDimension').value);
     const url = `/api/ArtProduct`;
     this.http.post(url, formData).subscribe((res) => {
       this.getArtList();
+      this.router.navigateByUrl('/admin');
     });
   }
 
