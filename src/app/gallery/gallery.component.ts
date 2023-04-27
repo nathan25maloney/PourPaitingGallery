@@ -12,6 +12,7 @@ import { ArtCardService } from '../art-card.service';
 export class GalleryComponent implements OnInit, OnDestroy  {
 
   public artId: string;
+  public cards: Array<IArtCard>;
 
   constructor(public route: ActivatedRoute, private ArtCardService: ArtCardService) { 
     this.route.paramMap.subscribe({
@@ -20,29 +21,28 @@ export class GalleryComponent implements OnInit, OnDestroy  {
       }
     })
   }
-  
-  get singleArt() {
-    return this.sortedList.find(obj => obj.id === Number(this.artId));
+
+  ngOnInit() {
+    this.ArtCardService.getArtCards().subscribe((cards) => {
+      this.cards = cards.sort((a, b) => b.artScore - a.artScore);
+    });
   }
 
-  public cards: Array<IArtCard>;
+  get singleArt() {
+    return this.cards.find(obj => obj.artId === this.artId);
+  }
 
   get sortedList() {
-    return this.ArtCardService.getArtCards()
+    return this.cards.sort((a, b) => b.artScore - a.artScore);
   }
 
   onLikesUpdated(updatedCard) {
     this.ArtCardService.updateArtCard(updatedCard);
   }
 
-  ngOnInit() {
-    this.cards = this.ArtCardService.getArtCards();
-  }
-
   ngOnDestroy() {
     const cards = this.ArtCardService.getArtCards();
     localStorage.setItem('cartItems', JSON.stringify(cards));
   }
-  
-  
 }
+

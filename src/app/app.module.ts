@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -12,6 +13,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { GalleryArtcardComponent } from './gallery-artcard/gallery-artcard.component';
 import { SingleArtcardComponent } from './single-artcard/single-artcard.component';
 import { ShoppingCartItemComponent } from './shopping-cart-item/shopping-cart-item.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +25,18 @@ import { ShoppingCartItemComponent } from './shopping-cart-item/shopping-cart-it
     GalleryComponent,
     GalleryArtcardComponent,
     SingleArtcardComponent,
-    ShoppingCartItemComponent
+    ShoppingCartItemComponent,
+    AdminComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export class AdminModule {}

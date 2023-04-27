@@ -1,24 +1,24 @@
 <section>
-  <div class="p-image" [routerLink]="['/gallery']" routerLinkActive="active">
-    <p class="text" [routerLink]="['/gallery']" routerLinkActive="active" >Paintings Gallery</p>
+  <div class="p-image" [routerLink]="['/gallery']" routerLinkActive="active" #imageContainer>
+    <p class="text" [routerLink]="['/gallery']" routerLinkActive="active">Paintings Gallery</p>
   </div>
 </section>  
 <section>
   <div class="colored-box-container">
     <div id="st-box">
-      <a class="strip-style" [routerLink]="['/gallery', cards[0].id]">
+      <a class="strip-style" [routerLink]="['/gallery', cards[0].artId]">
         <img
           id="img1"
-          src="/assets/Images/{{cards[0].filename}}.jpg"
-          alt="{{cards[0].name}}"
+          [src]="'data:image/jpeg;base64,' + cards[0].imgBytes"
+          alt="{{cards[0].artName}}"
           width="424px"
           height="398px"
         />
       </a>
       
       <div class="img-textbox">
-        <a class="strip-style" [routerLink]="['/gallery', cards[0].id]">
-          <div class="img-text">{{cards[0].name}}</div>
+        <a class="strip-style" [routerLink]="['/gallery', cards[0].artId]">
+          <div class="img-text">{{cards[0].artName}}</div>
           <div class="svg">
             <img
               src="assets/Images/icons8-forward-16.png"
@@ -32,18 +32,18 @@
     </div>
 
     <div id="nd-box">
-      <a class="strip-style" [routerLink]="['/gallery', cards[1].id]">
+      <a class="strip-style" [routerLink]="['/gallery', cards[1].artId]">
         <img
           id="img2"
-          src="/assets/Images/{{cards[1].filename}}.jpg"
-          alt="{{cards[1].name}}"
+          [src]="'data:image/jpeg;base64,' + cards[1].imgBytes"
+          alt="{{cards[1].artName}}"
           width="424px"
           height="398px"
         />
       </a>
       <div class="img-textbox">
-        <a class="strip-style" [routerLink]="['/gallery', cards[1].id]">
-          <div class="img-text">{{cards[1].name}}</div>
+        <a class="strip-style" [routerLink]="['/gallery', cards[1].artId]">
+          <div class="img-text">{{cards[1].artName}}</div>
           <div class="svg">
             <img
               src="assets/Images/icons8-forward-16.png"
@@ -57,19 +57,19 @@
     </div>
 
     <div id="rd-box">
-      <a class="strip-style" [routerLink]="['/gallery', cards[2].id]">
+      <a class="strip-style" [routerLink]="['/gallery', cards[0].artId]">
         <img
           id="img3"
-          src="/assets/Images/{{cards[2].filename}}.jpg"
-          alt="{{cards[2].name}}"
+          [src]="'data:image/jpeg;base64,' + cards[0].imgBytes"
+          alt="{{cards[0].artName}}"
           width="424px"
           height="398px"
         />
       </a>
       
       <div class="img-textbox">
-        <a class="strip-style" [routerLink]="['/gallery', cards[2].id]">
-          <div class="img-text">{{cards[2].name}}</div>
+        <a class="strip-style" [routerLink]="['/gallery', cards[0].artId]">
+          <div class="img-text">{{cards[0].artName}}</div>
           <div class="svg">
             <img
               src="assets/Images/icons8-forward-16.png"
@@ -86,19 +86,19 @@
 
   <div class="second-row-container">
     <div class="second-row-box">
-      <a class="strip-style" [routerLink]="['/gallery', cards[3].id]">
+      <a class="strip-style" [routerLink]="['/gallery', cards[1].artId]">
         <img
           class="second-row-image"
-          src="/assets/Images/{{cards[3].filename}}.jpg"
-          alt="{{cards[3].name}}"
+          [src]="'data:image/jpeg;base64,' + cards[1].imgBytes"
+          alt="{{cards[0].artName}}"
           width="511px"
           height="467px"
         />
       </a>
       
       <div class="img-textbox">
-        <a class="strip-style" [routerLink]="['/gallery', cards[3].id]">
-          <div class="img-text">{{cards[3].name}}</div>
+        <a class="strip-style" [routerLink]="['/gallery', cards[1].artId]">
+          <div class="img-text">{{cards[0].artName}}</div>
           <div class="svg">
             <img
               src="assets/Images/icons8-forward-16.png"
@@ -113,19 +113,19 @@
     </div>
 
     <div class="second-row-box">
-      <a class="strip-style" [routerLink]="['/gallery', cards[4].id]">
+      <a class="strip-style" [routerLink]="['/gallery', cards[0].artId]">
         <img
           class="second-row-image"
-          src="/assets/Images/{{cards[4].filename}}.jpg"
-          alt="{{cards[4].name}}"
+          [src]="'data:image/jpeg;base64,' + cards[0].imgBytes"
+          alt="{{cards[0].artName}}"
           width="511px"
           height="467px"
         />
       </a>
       
       <div class="img-textbox">
-        <a class="strip-style" [routerLink]="['/gallery', cards[4].id]">
-          <div class="img-text">{{cards[4].name}}</div>
+        <a class="strip-style" [routerLink]="['/gallery', cards[0].artId]">
+          <div class="img-text">{{cards[0].artName}}</div>
           <div class="svg">
             <img
               src="assets/Images/icons8-forward-16.png"
@@ -145,7 +145,7 @@
         <div class="img-expo-box">
           <img
             class="img-expo"
-            src="/assets/Images/{{cards[15].filename}}.jpg"
+            [src]="'data:image/jpeg;base64,' + cards[1].imgBytes"
             width="153px"
             height="149px"
           />
@@ -159,7 +159,7 @@
         <div class="img-expo-box">
           <img
             class="img-expo"
-            src="/assets/Images/{{cards[17].filename}}.jpg"
+            [src]="'data:image/jpeg;base64,' + cards[0].imgBytes"
             width="153px"
             height="149px"
           />
@@ -176,7 +176,7 @@
         <div class="img-expo-box">
           <img
             class="img-expo"
-            src="/assets/Images/{{cards[19].filename}}.jpg"
+            [src]="'data:image/jpeg;base64,' + cards[0].imgBytes"
             width="153px"
             height="149px"
           />
@@ -190,7 +190,7 @@
         <div class="img-expo-box">
           <img
             class="img-expo"
-            src="/assets/Images/{{cards[21].filename}}.jpg"
+            [src]="'data:image/jpeg;base64,' + cards[0].imgBytes"
             width="153px"
             height="149px"
           />
@@ -204,7 +204,7 @@
         <div class="img-expo-box">
           <img
             class="img-expo"
-            src="/assets/Images/{{cards[23].filename}}.jpg"
+            [src]="'data:image/jpeg;base64,' + cards[0].imgBytes"
             width="153px"
             height="149px"
           />
@@ -218,7 +218,7 @@
         <div class="img-expo-box">
           <img
             class="img-expo"
-            src="/assets/Images/{{cards[25].filename}}.jpg"
+            [src]="'data:image/jpeg;base64,' + cards[0].imgBytes"
             width="153px"
             height="149px"
           />

@@ -1,6 +1,6 @@
 <div class="artcard-container">
-    <div class="painting-name">{{singleArt.name}}</div>
-    <img class="artcard-art" src="/assets/Images/{{singleArt.filename}}.jpg" alt="{{singleArt.name}}">
-    <div class="painting-description">{{singleArt.description}}</div>
+    <div class="painting-name">{{singleArt.artName}}</div>
+    <img class="artcard-art" [src]="'data:image/jpeg;base64,' + singleArt.imgBytes" alt="{{singleArt.artName}}">
+    <div class="painting-description">{{singleArt.artDesc}}</div>
     <button class="add-to-cart" (click)="addToCart()" [disabled]="hasItem()">Add to Cart</button>
 </div>
