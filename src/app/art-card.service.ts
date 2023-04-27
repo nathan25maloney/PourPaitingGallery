@@ -24,7 +24,6 @@ export class ArtCardService {
   
   addToArtCard(artCard: IArtCard) {
     this.artCards.push(artCard);
-    console.log(this.artCards)
     this.favoritesChanged.emit(this.artCards);
   }
 

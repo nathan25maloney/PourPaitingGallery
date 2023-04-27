@@ -71,6 +71,7 @@ export class AdminComponent {
     formData.append('ArtDimensions', this.form.get('artDimensions').value);
     const url = `/api/ArtProduct`;
     this.http.post(url, formData).subscribe((res) => {
+      this.selectedFile = null;
       this.getArtList();
       this.router.navigateByUrl('/admin');
     });
@@ -78,7 +79,9 @@ export class AdminComponent {
 
   updateArtProduct(IArtCard): void {
     const formData = new FormData();
-    formData.append('imgFile', this.selectedFile);
+    if (this.selectedFile !== null) {
+      formData.append('imgFile', this.selectedFile);
+    }
     formData.append('ArtId', IArtCard.artId)
     formData.append('ArtName', this.form.get('artName').value !== '' ? this.form.get('artName').value : IArtCard.artName);
     formData.append('ArtDesc', this.form.get('artDesc').value !== '' ? this.form.get('artDesc').value : IArtCard.artDesc);
@@ -86,9 +89,10 @@ export class AdminComponent {
     formData.set('ArtScore', this.form.get('artScore').value.toString() !== '0' ? this.form.get('artScore').value.toString() : IArtCard.artScore.toString());
     formData.set('isAvailable', this.form.get('isAvailable').value ? 'true' : 'false');
     formData.append('ArtDimensions', this.form.get('artDimensions').value !== '' ? this.form.get('artDimensions').value : IArtCard.artDimensions);
-    
+ 
     const url = `/api/ArtProduct`;
     this.http.put(url, formData).subscribe((res) => {
+      this.selectedFile = null;
       this.getArtList();
     });
   }

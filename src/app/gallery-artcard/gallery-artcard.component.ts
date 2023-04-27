@@ -22,7 +22,6 @@ export class GalleryArtcardComponent {
       this.singleCard.artScore++;
     }
     this.singleCard.hasVoted = 1;
-    console.log(this.singleCard)
     this.likesUpdated.emit(this.singleCard);
   }
 
@@ -33,7 +32,6 @@ export class GalleryArtcardComponent {
       this.singleCard.artScore--;
     }
     this.singleCard.hasVoted = -1;
-    console.log(this.singleCard)
     this.likesUpdated.emit(this.singleCard);
   }
   
