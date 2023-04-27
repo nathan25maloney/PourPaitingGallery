@@ -4,9 +4,10 @@ export interface IArtCard {
     artDesc: string,
     artPrice: number,
     isAvailable: boolean,
-    artDimension: string,
+    artDimensions: string,
     artScore: number,
     imgFile: string,
     imgBytes: string,
-    hasVoted: number
+    hasVoted: number,
+    isEditable: boolean
 }

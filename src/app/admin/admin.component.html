@@ -1,53 +1,87 @@
 <h1>Art Products Admin</h1>
 <h2>Current Products</h2>
-<table>
-<thead>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Score</th>
-        <th>Available</th>
-        <th>Dimensions</th>
-        <th>Image</th>
-        <th>Actions</th>
-    </tr>
-</thead>
-<tbody>
-    <!-- Display each art product here -->
-    <tr *ngFor="let artProduct of artList">
-    <td>{{ artProduct.artName }}</td>
-    <td>{{ artProduct.artDesc }}</td>
-    <td>{{ artProduct.artPrice }}</td>
-    <td>{{ artProduct.artScore }}</td>
-    <td>{{ artProduct.isAvailable }}</td>
-    <td>{{ artProduct.artDimension }}</td>
-    <td><img
-        class="second-row-image"
-        [src]="'data:image/jpeg;base64,' + artProduct.imgBytes"
-        alt="{{artProduct.artName}}"
-        width="200px"
-      /></td>
-    <td>
-        <!-- Link to edit page -->
-        <a href="/admin/edit/{{ artProduct.artId }}">Edit</a>
+<table class="admin-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Score</th>
+            <th>Available</th>
+            <th>Dimensions</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Display each art product here -->
+        <tr *ngFor="let artProduct of artList; let i = index">
+            <ng-container *ngIf="!artProduct.isEditable; else editRow">
+                <!-- Display the non-editable row -->
+                <td>{{ artProduct.artName }}</td>
+                <td>{{ artProduct.artDesc }}</td>
+                <td>{{ artProduct.artPrice }}</td>
+                <td>{{ artProduct.artScore }}</td>
+                <td>{{ artProduct.isAvailable }}</td>
+                <td>{{ artProduct.artDimensions }}</td>
+                <td><img class="second-row-image" [src]="'data:image/jpeg;base64,' + artProduct.imgBytes"
+                        alt="{{artProduct.artName}}" width="200px" /></td>
+                <td>
+                    <!-- Button to toggle editing -->
+                    <button (click)="artProduct.isEditable = true">Edit</button>
 
-        <!-- Form to delete product -->
-        <div>
-            <button (click)="deleteArtProduct(artProduct.artId)">Delete</button>
-        </div>
-    </td>
-    </tr>
-</tbody>
+                    <!-- Form to delete product -->
+                    <div>
+                        <button (click)="deleteArtProduct(artProduct.artId)">Delete</button>
+                    </div>
+                </td>
+            </ng-container>
+
+            <ng-template #editRow>
+                <!-- Display the editable form -->
+                <td colspan="7">
+                    <form class="form" [formGroup]="form" (ngSubmit)="updateArtProduct(artProduct)">
+                        <label for="artName">Name</label>
+                        <input type="text" formControlName="artName" value="{{ artProduct.artName }}" />
+                        <label for="artDesc">Description</label>
+                        <textarea formControlName="artDesc"></textarea>
+                        <label for="artPrice">Price</label>
+                        <input type="number" formControlName="artPrice" />
+                        <label for="isAvailable">Available*</label>
+                        <input type="checkbox" formControlName="isAvailable" />
+                        <label for="artDimensions">Dimensions</label>
+                        <input type="text" formControlName="artDimensions" />
+                        <label for="artScore">Score</label>
+                        <input type="number" formControlName="artScore" />  
+                        <label for="imgBytes">Image*</label>
+                        <input type="file" (change)="onFileSelected($event)" />   
+                        <label for="artId">* indicates required fields</label>                   
+                        <button type="submit">Update Art Product</button>
+                    </form>
+                </td>
+
+                <td>
+                    <button (click)="artProduct.isEditable = false">Cancel</button>
+                </td>
+            </ng-template>
+        </tr>
+    </tbody>
 </table>
 <h2>Add New Product</h2>
-    <form [formGroup]="form" (ngSubmit)="createArtProduct()">
-        <input type="text" formControlName="artName" />
-        <textarea formControlName="artDesc"></textarea>
-        <input type="number" formControlName="artPrice" />
-        <input type="checkbox" formControlName="isAvailable" />
-        <input type="text" formControlName="artDimension" />
-        <input type="number" formControlName="artScore" />
-        <input type="file" (change)="onFileSelected($event)" />
-        <button type="submit">Create Art Product</button>
-    </form>
+<form class="form" [formGroup]="form" (ngSubmit)="createArtProduct()">
+    <label for="artName">Name</label>
+    <input type="text" formControlName="artName" />
+    <label for="artDesc">Description</label>
+    <textarea rows="10" formControlName="artDesc"></textarea>
+    <label for="artPrice">Price</label>
+    <input type="number" formControlName="artPrice" />
+    <label for="isAvailable">Available</label>
+    <input type="checkbox" formControlName="isAvailable" />
+    <label for="artDimensions">Dimensions</label>
+    <input type="text" formControlName="artDimensions" />
+    <label for="artScore">Score</label>
+    <input type="number" formControlName="artScore" />
+    <label for="imgBytes">Image</label>
+    <input type="file" (change)="onFileSelected($event)" />
+    <button type="submit">Create Art Product</button>
+</form>

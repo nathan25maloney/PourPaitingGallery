@@ -11,6 +11,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent {
+
   artList:  Array<IArtCard>;
   selectedFile: File;
   artProduct: IArtCard = {
@@ -19,11 +20,12 @@ export class AdminComponent {
     artDesc: '',
     artPrice: 0,
     isAvailable: false,
-    artDimension: '',
+    artDimensions: '',
     artScore: 0,
     imgFile: '',
     imgBytes: '',
-    hasVoted: 0
+    hasVoted: 0,
+    isEditable: false
   };
   form: FormGroup;
 
@@ -38,7 +40,7 @@ export class AdminComponent {
       artDesc: '',
       artPrice: 0,
       isAvailable: false,
-      artDimension: '',
+      artDimensions: '',
       artScore: 0,
       imgFile: null
     });
@@ -66,7 +68,7 @@ export class AdminComponent {
     formData.set('ArtPrice', this.form.get('artPrice').value.toString());
     formData.set('ArtScore', this.form.get('artScore').value.toString());
     formData.append('isAvailable', this.form.get('isAvailable').value ? 'true' : 'false');
-    formData.append('ArtDimensions', this.form.get('artDimension').value);
+    formData.append('ArtDimensions', this.form.get('artDimensions').value);
     const url = `/api/ArtProduct`;
     this.http.post(url, formData).subscribe((res) => {
       this.getArtList();
@@ -74,16 +76,17 @@ export class AdminComponent {
     });
   }
 
-  updateArtProduct(): void {
+  updateArtProduct(IArtCard): void {
     const formData = new FormData();
-    formData.append('imgFile', this.selectedFile, this.selectedFile.name);
-    formData.append('ArtName', this.artProduct.artName);
-    formData.append('ArtDesc', this.artProduct.artDesc);
-    formData.set('ArtPrice', this.artProduct.artPrice.toString());
-    formData.set('ArtScore', this.artProduct.artScore.toString());
-    formData.set('isAvailable', this.artProduct.isAvailable.toString());
-    formData.append('ArtDimensions', this.artProduct.artDimension);
-
+    formData.append('imgFile', this.selectedFile);
+    formData.append('ArtId', IArtCard.artId)
+    formData.append('ArtName', this.form.get('artName').value !== '' ? this.form.get('artName').value : IArtCard.artName);
+    formData.append('ArtDesc', this.form.get('artDesc').value !== '' ? this.form.get('artDesc').value : IArtCard.artDesc);
+    formData.set('ArtPrice', this.form.get('artPrice').value.toString() !== '0' ? this.form.get('artPrice').value.toString() : IArtCard.artPrice.toString());
+    formData.set('ArtScore', this.form.get('artScore').value.toString() !== '0' ? this.form.get('artScore').value.toString() : IArtCard.artScore.toString());
+    formData.set('isAvailable', this.form.get('isAvailable').value ? 'true' : 'false');
+    formData.append('ArtDimensions', this.form.get('artDimensions').value !== '' ? this.form.get('artDimensions').value : IArtCard.artDimensions);
+    
     const url = `/api/ArtProduct`;
     this.http.put(url, formData).subscribe((res) => {
       this.getArtList();

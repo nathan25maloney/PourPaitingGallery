@@ -33,7 +33,7 @@ export class GalleryComponent implements OnInit, OnDestroy  {
   }
 
   get sortedList() {
-    return this.cards;
+    return this.cards.sort((a, b) => b.artScore - a.artScore);
   }
 
   onLikesUpdated(updatedCard) {

@@ -17,7 +17,7 @@ export class ArtCardService {
   getArtCards(): Observable<IArtCard[]> {
     return this.http.get<IArtCard[]>('/api/ArtProduct').pipe(
       map(artCards => artCards.sort((a,b) => b.artScore - a.artScore)),
-      map(artCards => artCards.map(card => ({ ...card, hasVoted: 0 }))), // add hasVoted property to each card
+      map(artCards => artCards.map(card => ({ ...card, hasVoted: 0, isEditable: false }))), // add hasVoted property to each card
       tap(sortedArtCards => this.artCards = sortedArtCards)
     );
   }
@@ -31,7 +31,7 @@ export class ArtCardService {
   updateArtCard(artCard: IArtCard) {
     const index = this.artCards.findIndex(obj => obj.artId === artCard.artId);
     this.artCards[index] = artCard;
-    this.favoritesChanged.emit(this.artCards);
+    this.favoritesChanged.emit(this.artCards); 
   }
 
   removeFromArtCard(artCard: IArtCard) {
