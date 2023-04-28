@@ -1,33 +1,56 @@
 
 .artcard-art{
+    padding-top: 4vh;;
     width: 32vw;
-    margin: auto;
-    justify-content: center;
 }
 .artcard-container{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
-
+.info-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
 .painting-name{
     font-size: 40px;
-    margin-left: 25vw;
-    margin-bottom: 2vh;
+    margin-top: 2vh;
+    min-width: 25vw;
+    justify-content: flex-end;
+    display: flex;
+    margin-right: 3vw;
 }
 
 .painting-description {
-    margin-top: 2vh;
-    margin-left: 20vw;
-    margin-right: 20vw;
+    margin-top: 7vh;
+    font-size: x-large;
     text-indent: 16px;
+    margin-left: 2vw;
+}
+
+.painting-price {
+    flex-grow: 1;
+    margin-top: 13vh;
+    font-size: x-large;
+    text-indent: 16px;
+    margin-right: 1vw;
+    justify-content: flex-end;
+    display: flex;
+}
+
+.add-to-cart-container {
+    display: flex;
 }
 
 .add-to-cart {
-    margin-top: 2vh;
+    margin-top: 9vh;
     margin-left: auto;
-    width: 300px;
-    padding: 1.2rem 4.5rem 1.3rem;
+    width: 173px;
+    padding: 1.2rem 0.5rem 1.3rem;
     font-size: 1.2rem;
-    -webkit-box-shadow: 0 0.2rem 0.8rem -0.4rem #1f2830;
-    box-shadow: 0 0.2rem 0.8rem -0.4rem #1f2830;
+    border-radius: 6px;
+    box-shadow: 0 0.2rem 0.8rem -0.3rem #1f2830;
+    background-color: navy;
+    color: white;
+    margin-right: 3vw;
 }
