@@ -178,10 +178,15 @@ h1 {
   display: flex;
   word-wrap: break-word;
 }
+
+.main-section {
+  display: flex;
+  flex-direction: column;
+}
+ 
 .p-image {
-  background-image: url("/assets/Images/IMG-1998.jpg");
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: 69vw;
   background-position: center center;
   padding: 1.5vw;
   background-color: #f3f4f5;
@@ -189,18 +194,14 @@ h1 {
   height: 400px;
   display: block;
   margin: 0 auto;
-  margin-bottom: 5em;
 }
 
 .text {
   color: #de1f98;
   font-weight: bold;
-  font-size:xx-large;
-  position: absolute;
-  bottom: 28%;
-  left: 22%;
-  
-  
+  font-size:xx-large;  
+  margin-left: 21vw;
+  margin-top: 0px;
 }
 
 .text:hover {

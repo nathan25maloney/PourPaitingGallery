@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IArtCard } from '../models/IArtCard';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-gallery-artcard',
@@ -8,7 +9,7 @@ import { IArtCard } from '../models/IArtCard';
 })
 export class GalleryArtcardComponent {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   @Input() singleCard!: IArtCard;
   
@@ -16,14 +17,14 @@ export class GalleryArtcardComponent {
 
 
   incrementLikes() {
+    
     if (this.singleCard.hasVoted === -1) {
       this.singleCard.artScore +=2;
     } else if(this.singleCard.hasVoted !== 1) {
       this.singleCard.artScore++;
     }
     this.singleCard.hasVoted = 1;
-    console.log(this.singleCard)
-    this.likesUpdated.emit(this.singleCard);
+    this.updateScore(this.singleCard);
   }
 
   decrementLikes() {
@@ -33,8 +34,17 @@ export class GalleryArtcardComponent {
       this.singleCard.artScore--;
     }
     this.singleCard.hasVoted = -1;
-    console.log(this.singleCard)
-    this.likesUpdated.emit(this.singleCard);
+    this.updateScore(this.singleCard);
+  }
+
+  updateScore(singleCard) {
+    const formData = new FormData();
+    formData.append('ArtId', this.singleCard.artId)
+    formData.set('ArtScore', this.singleCard.artScore.toString());
+    const url = `/api/ArtProduct`;
+    this.http.put(url, formData).subscribe((res) => {
+      this.likesUpdated.emit(this.singleCard);
+    });
   }
   
 
