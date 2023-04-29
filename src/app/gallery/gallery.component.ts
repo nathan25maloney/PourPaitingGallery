@@ -24,16 +24,19 @@ export class GalleryComponent implements OnInit, OnDestroy  {
 
   ngOnInit() {
     this.ArtCardService.getArtCards().subscribe((cards) => {
-      this.cards = cards.sort((a, b) => b.artScore - a.artScore);
+      this.cards = cards.filter(card => card.isAvailable)
     });
   }
 
   get singleArt() {
-    return this.cards.find(obj => obj.artId === this.artId);
+    if (this.cards) {
+      return this.cards.find(obj => obj.artId === this.artId);
+    }
+    return null;
   }
 
   get sortedList() {
-    return this.cards.sort((a, b) => b.artScore - a.artScore);
+    return this.cards
   }
 
   onLikesUpdated(updatedCard) {

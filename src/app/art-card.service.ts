@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter  } from '@angular/core';
 import { IArtCard } from './models/IArtCard';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map, tap } from 'rxjs';
+import { Observable, filter, map, tap } from 'rxjs';
 
 
 @Injectable({
