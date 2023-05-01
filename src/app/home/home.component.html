@@ -4,9 +4,9 @@
   <p class="text" [routerLink]="['/gallery']" routerLinkActive="active">Paintings Gallery</p>
 </section>  
 <section>
-  <div class="colored-box-container">
+  <div class="colored-box-container" *ngIf="cards?.length > 0">
     <div id="st-box">
-      <a class="strip-style" [routerLink]="['/gallery', cards[0].artId]">
+      <a class="strip-style" [routerLink]="['/gallery', cards[0].artId]" *ngIf="cards[0]">
         <img
           id="img1"
           [src]="'data:image/jpeg;base64,' + cards[0].imgBytes"
@@ -17,7 +17,7 @@
       </a>
       
       <div class="img-textbox">
-        <a class="strip-style" [routerLink]="['/gallery', cards[0].artId]">
+        <a class="strip-style" [routerLink]="['/gallery', cards[0].artId]" *ngIf="cards[0]">
           <div class="img-text">{{cards[0].artName}}</div>
           <div class="svg">
             <img
@@ -32,7 +32,7 @@
     </div>
 
     <div id="nd-box">
-      <a class="strip-style" [routerLink]="['/gallery', cards[1].artId]">
+      <a class="strip-style" [routerLink]="['/gallery', cards[1].artId]" *ngIf="cards[1]">
         <img
           id="img2"
           [src]="'data:image/jpeg;base64,' + cards[1].imgBytes"
@@ -42,7 +42,7 @@
         />
       </a>
       <div class="img-textbox">
-        <a class="strip-style" [routerLink]="['/gallery', cards[1].artId]">
+        <a class="strip-style" [routerLink]="['/gallery', cards[1].artId]" *ngIf="cards[1]">
           <div class="img-text">{{cards[1].artName}}</div>
           <div class="svg">
             <img
@@ -57,7 +57,7 @@
     </div>
 
     <div id="rd-box">
-      <a class="strip-style" [routerLink]="['/gallery', cards[2].artId]">
+      <a class="strip-style" [routerLink]="['/gallery', cards[2].artId]" *ngIf="cards[2]">
         <img
           id="img3"
           [src]="'data:image/jpeg;base64,' + cards[2].imgBytes"
@@ -68,7 +68,7 @@
       </a>
       
       <div class="img-textbox">
-        <a class="strip-style" [routerLink]="['/gallery', cards[2].artId]">
+        <a class="strip-style" [routerLink]="['/gallery', cards[2].artId]" *ngIf="cards[2]">
           <div class="img-text">{{cards[2].artName}}</div>
           <div class="svg">
             <img
@@ -84,7 +84,7 @@
     </div>
   </div>
 
-  <div class="second-row-container">
+  <div class="second-row-container" *ngIf="cards?.length > 0">
     <div class="second-row-box">
       <a class="strip-style" [routerLink]="['/gallery', cards[3].artId]">
         <img
@@ -112,7 +112,7 @@
       </div>
     </div>
 
-    <div class="second-row-box">
+    <div class="second-row-box" *ngIf="cards?.length > 0">
       <a class="strip-style" [routerLink]="['/gallery', cards[4].artId]">
         <img
           class="second-row-image"
@@ -137,7 +137,7 @@
       </div>
     </div>
   </div>
-  <div class="third-row-containter">
+  <div class="third-row-containter" *ngIf="cards?.length > 0" >
     <h1>Recent exhibitions</h1>
 
     <div class="grid-container">

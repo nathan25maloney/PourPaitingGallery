@@ -1,4 +1,4 @@
-<div class="artcard-container">
+<div class="artcard-container" *ngIf="singleArt?.artName">
     <div class="painting-name">{{singleArt.artName}}</div>
     <img class="artcard-art" [src]="'data:image/jpeg;base64,' + singleArt.imgBytes" alt="{{singleArt.artName}}">
     <div class="info-container">

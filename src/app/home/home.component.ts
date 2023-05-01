@@ -15,20 +15,22 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.artCardService.getArtCards().subscribe((cards: Array<IArtCard>) => {
-      this.cards = cards;
+      this.cards = cards.filter(card => card.isAvailable);
+      this.setRandomBackground();
     });
   }
 
   ngAfterViewInit(): void {
-    const el = this.imageContainer.nativeElement;
-    // Set the background image
-    this.renderer.setStyle(el, 'background-image', `url(${this.getRandomImage()})`);
+    this.setRandomBackground();
   }
 
-  getRandomImage(): string {
-    // Get a random image from your public cards array
-    const randomIndex = Math.floor(Math.random() * this.cards.length);
-    return `data:image/jpeg;base64,${this.cards[randomIndex].imgBytes}`;
+  setRandomBackground(): void {
+    if (this.cards) {
+      const el = this.imageContainer.nativeElement;
+      const randomIndex = Math.floor(Math.random() * this.cards.length);
+      const randomImage = `data:image/jpeg;base64,${this.cards[randomIndex].imgBytes}`;
+      this.renderer.setStyle(el, 'background-image', `url(${randomImage})`);
+    }
   }
 
 }
