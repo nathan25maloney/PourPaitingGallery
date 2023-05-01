@@ -76,7 +76,7 @@ export class ShoppingCartService {
     // Check each item for expiration
     cartItems.forEach(item => {
       const elapsedMinutes = (Date.now() - item.addedTime) / (1000 * 60); // calculate elapsed time in minutes
-      if (elapsedMinutes > 2) { // if elapsed time is greater than 30 minutes
+      if (elapsedMinutes > 30) { // if elapsed time is greater than 30 minutes
         item.isAvailable = true; // set isAvailable back to true
         localStorage.removeItem(item.artId); // remove expired item from localStorage
         this.updateArtCard(item, true); // update the item's availability in the database
