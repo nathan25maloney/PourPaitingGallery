@@ -1,6 +1,26 @@
 <div class="shopping-cart-container">
+    <h1 class="shopping-cart-header">Shopping Cart</h1>
     <div class="shopping-cart-item-conatiner" *ngFor="let item of itemsInCart">
         <app-shopping-cart-item [item]="item"></app-shopping-cart-item>
+    </div>
+    <div class="cart-bottom-row">
+        <div class="promo-code-container">
+          <input type="text" placeholder="Enter Promo Code">
+          <button class="apply-code-button">Apply Code</button>
+        </div>
+        <div class="cart-totals-container">
+          <table class="totals-table">
+            <tr>
+              <td>Subtotal:</td>
+              <td>{{calculateSubtotal() | currency}}</td>
+            </tr>
+            <tr>
+              <td>Total:</td>
+              <td>{{calculateTotal() | currency}}</td>
+            </tr>
+          </table>
+          <button class="proceed-to-checkout-button">Proceed to Checkout</button>
+        </div>
     </div>
 </div>
 

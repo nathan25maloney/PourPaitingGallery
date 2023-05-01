@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { IArtCard } from '../models/IArtCard';
 import { ShoppingCartService } from '../shopping-cart.service';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-shopping-cart-item',
