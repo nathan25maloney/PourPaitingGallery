@@ -39,4 +39,3 @@ import { AdminComponent } from './admin/admin.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-export class AdminModule {}

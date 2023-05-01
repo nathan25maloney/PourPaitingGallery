@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IArtCard } from 'src/app/models/IArtCard'
 import { GalleryArtcardComponent } from '../gallery-artcard/gallery-artcard.component';
+import { RouterModule } from '@angular/router';
 import { ArtCardService } from '../art-card.service';
 
 @Component({
@@ -36,7 +37,7 @@ export class GalleryComponent implements OnInit, OnDestroy  {
   }
 
   get sortedList() {
-    return this.cards
+    return this.cards.sort((a, b) => b.artScore - a.artScore);
   }
 
   onLikesUpdated(updatedCard) {

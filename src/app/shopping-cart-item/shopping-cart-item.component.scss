@@ -1,32 +1,36 @@
 
 .artcard-art {
-    width: 15vw;
-    
+    height: 24vh;
+    margin-left: 2vw;
+}
+
+.shopping-cart-item-container {
+    display: flex;
 }
 
 .item-container {
-    max-height: 15vh;
     display: flex;
     flex-direction: row;
-    padding: 2vh 4vw 2vh 4vw;
+    width: 98vw;
+    margin-bottom: 2vh;
 }
 
 .item-art {
     max-height: 15vh;
 }
 
-.name-button-container {
-    display: flex;
-    flex-direction: column;
-    margin: 1vh 3vw 1vh 3vw
-}
-
-.item-name {
-    font-size: 24px;
-    margin-bottom: 4vh;
-    flex-grow: 1;
-}
-
 .remove-item {
     width: 70px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-name, .item-desc, .item-price, .item-dimensions {
+    font-size: 24px;
+    flex-grow: 1;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
