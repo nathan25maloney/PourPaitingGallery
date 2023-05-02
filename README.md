@@ -2,11 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
 
-# Sequence and Class Diagram:
+# UML Diagram:
 
-![image](https://user-images.githubusercontent.com/50929778/235553005-876efa67-4dcd-4701-94c9-2e8275dc1da1.png)
+![MicrosoftTeams-image (3)](https://user-images.githubusercontent.com/50929778/235558696-2f5b45e2-bb54-42ec-a859-45b277a8c996.png)
+![MicrosoftTeams-image (2)](https://user-images.githubusercontent.com/50929778/235558698-6bfaeacd-34a9-4c28-b052-595cdf53df00.png)
 
-![image](https://user-images.githubusercontent.com/50929778/235553032-5a82275e-7ae8-4c22-9ccc-7de563ffe6bc.png)
 
 
 ## Development server
